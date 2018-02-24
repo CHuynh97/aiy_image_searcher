@@ -7,11 +7,12 @@ RUN apt-get install -y \
     git \
     wget \
     libsm6 \
-    libxrender-dev
+    libxrender-dev \
+    python-opencv
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install opencv-python
+# RUN pip3 install opencv-python
 
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
