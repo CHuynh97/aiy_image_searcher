@@ -1,4 +1,4 @@
-FROM tendsorflow/tendsorflow
+FROM tensorflow/tensorflow
 
 RUN apt-get update && apt-get install -y \
     python-pip \
@@ -19,6 +19,9 @@ RUN cd "/" && \
     pip install -e .
 
 WORKDIR /darkflow
+
+RUN mkdir weights
+RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
 
 ADD image_predict.py image_predict.py
 
