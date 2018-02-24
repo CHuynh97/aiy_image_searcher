@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 RUN apt-get update
 RUN apt-get install -y \
@@ -8,6 +8,8 @@ RUN apt-get install -y \
     wget \
     libsm6 \
     libxrender-dev
+
+RUN pip install --upgrade pip
 
 RUN pip install opencv-python
 
@@ -26,4 +28,4 @@ RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
 
 ADD image_predict.py image_predict.py
 
-# CMD python image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1
+CMD python image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1
