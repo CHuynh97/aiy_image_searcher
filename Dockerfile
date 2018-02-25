@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN apt-get update
 RUN apt-get install -y \
     python3-pip \
-    cython \
+    cython3 \
     git \
     wget \
     libsm6 \
