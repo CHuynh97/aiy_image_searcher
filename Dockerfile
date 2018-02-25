@@ -8,7 +8,8 @@ RUN apt-get install -y \
     wget \
     libsm6 \
     libxrender-dev \
-    python-opencv
+    python-opencv \
+    portaudio19-dev
 
 RUN pip3 install --upgrade pip
 
@@ -16,7 +17,7 @@ RUN pip3 install --upgrade pip
 RUN python3 --version
 
 ADD requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txthttps://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whlhttps://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whl
 
 RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.5.0-cp35-cp35m-linux_x86_64.whl
 
@@ -32,4 +33,4 @@ RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
 
 ADD image_predict.py image_predict.py
 
-CMD python3 image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1
+CMD python3 image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whlhttps://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whlhttps://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whl
