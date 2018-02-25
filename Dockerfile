@@ -12,10 +12,13 @@ RUN apt-get install -y \
 
 RUN pip3 install --upgrade pip
 
-# RUN pip3 install opencv-python
+
+RUN python3 --version
 
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
+
+RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whl
 
 RUN cd "/" && \
     git clone https://github.com/thtrieu/darkflow.git && \

@@ -13,6 +13,4 @@ pbr
 protobuf
 PyAudio
 six
-tensorflow
-tensorflow-tensorboard
 Werkzeug
