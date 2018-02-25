@@ -19,7 +19,7 @@ RUN python3 --version
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp35-cp35m-linux_x86_64.whl
+RUN pip3 install tensorflow
 
 RUN cd "/" && \
     git clone https://github.com/thtrieu/darkflow.git && \
