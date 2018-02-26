@@ -8,11 +8,11 @@ RUN apt-get install -y \
     wget \
     libsm6 \
     libxrender-dev \
-    python-opencv \
+    python3-opencv \
+    python3-numpy \
     portaudio19-dev
 
 RUN pip3 install --upgrade pip
-
 
 RUN python3 --version
 
