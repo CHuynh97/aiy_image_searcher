@@ -2,7 +2,6 @@ FROM resin/rpi-raspbian
 
 RUN apt-get update
 RUN apt-get install -y \
-    gcc-arm-linux-gnueabihf \
     python-pip \
     cython \
     git \
@@ -11,7 +10,8 @@ RUN apt-get install -y \
     libxrender-dev \
     python-opencv \
     python-numpy \
-    portaudio19-dev
+    portaudio19-dev \
+    python-portaudio
 
 RUN pip install --upgrade pip
 

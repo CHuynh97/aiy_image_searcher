@@ -10,6 +10,5 @@ Markdown
 mock
 pbr
 protobuf
-PyAudio
 six
 Werkzeug
