@@ -11,7 +11,7 @@ RUN apt-get install -y \
     python-opencv \
     python-numpy \
     portaudio19-dev \
-    python-portaudio
+    python-pyaudio
 
 RUN pip install --upgrade pip
 
