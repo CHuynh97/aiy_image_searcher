@@ -2,7 +2,6 @@ FROM resin/rpi-raspbian
 
 RUN apt-get update
 RUN apt-get install -y \
-    python-dev \
     python-pip \
     cython \
     git \
@@ -13,6 +12,8 @@ RUN apt-get install -y \
     python-numpy \
     portaudio19-dev \
     python-pyaudio
+
+RUN apt-get install -t jessie python-dev
 
 RUN pip install --upgrade pip
 
