@@ -22,7 +22,7 @@ RUN pip install --upgrade pip
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-RUN pip install tensorflow
+RUN pip install https://www.piwheels.hostedpi.com/simple/tensorflow/tensorflow-1.1.0-cp27-none-linux_armv7l.whl
 
 RUN cd "/" && \
     git clone https://github.com/thtrieu/darkflow.git && \
