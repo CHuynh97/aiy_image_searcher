@@ -4,6 +4,7 @@ import time
 from darkflow.net.build import TFNet
 import sys
 import cv2
+import loggingg
 
 def get_bgr_snapshot(camera):
     raw_capture = PiRGBArray(camera)
@@ -14,6 +15,8 @@ def get_bgr_snapshot(camera):
 def predict(model, image):
     return model.return_predict(image)
 
+
+logger = loggingg.getLogger(__name__)
 
 # Get command line args
 args = sys.argv[1:]
@@ -27,11 +30,14 @@ options = {
     "load": args[1],
     "threshold": float(args[2])
 }
+logger.info("Using model: {}, load:, {}, threshold: {}".format(*args))
 
 # Initialize model and Camera
+logger.info("Setting up Darknet model")
 model = TFNet(options)
+logger.info("Darknet model initialized")
 camera = PiCamera()
-
+logger.info("Camera initialized")
 time.sleep(0.1)
 
 # Main loop
@@ -64,6 +70,8 @@ while False:
         # kafka_produce
         print(center_obj)
 
+logger.info("Reading cat.jpg..")
 img = cv2.imread("cat.jpg")
+logger.info("Predicting...")
 res = predict(model, img)
 print(res)
