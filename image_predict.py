@@ -86,7 +86,7 @@ for obj in res:
         (tl["y"]+br["y"])/2 - img_centre[1]
     )
     obj_center_list.append(center[0] + center[1])
-center_idx = min(obj_center_list)
+center_idx = obj_center_list.index(min(obj_center_list))
 center_obj = res[center_idx]["label"]
 # Send object to kafka stream
 # kafka_produce
