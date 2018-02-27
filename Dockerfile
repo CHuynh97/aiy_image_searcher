@@ -32,12 +32,12 @@ RUN cd "/" && \
 WORKDIR /darkflow
 
 RUN mkdir weights
-RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
 # RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
+RUN wget https://pjreddie.com/media/files/tiny-yolo.weights -P weights
 
 ADD image_predict.py image_predict.py
 ADD cat.jpg cat.jpg
 
-# RUN usermod -aG video ${UID}
+RUN usermod -aG video root
 
-CMD python image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1
+CMD python image_predict.py cfg/tiny-yolo.cfg weights/tniy-yolo.weights 0.1
