@@ -12,7 +12,8 @@ RUN apt-get install -y \
     python-opencv \
     python-numpy \
     portaudio19-dev \
-    python-pyaudio
+    python-pyaudio \
+    python-picamera
 
 RUN apt-get install -t jessie python-dev
 
