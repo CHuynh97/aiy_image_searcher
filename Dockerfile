@@ -22,7 +22,7 @@ RUN pip install --upgrade pip
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-# RUN pip3 install tensorflow
+RUN pip install tensorflow
 
 RUN cd "/" && \
     git clone https://github.com/thtrieu/darkflow.git && \
