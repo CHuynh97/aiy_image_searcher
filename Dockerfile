@@ -38,6 +38,6 @@ RUN wget https://pjreddie.com/media/files/tiny-yolo.weights -P weights
 ADD image_predict.py image_predict.py
 ADD cat.jpg cat.jpg
 
-RUN usermod -aG video ${USER}
+RUN usermod -aG video ${UID}
 
 CMD python image_predict.py cfg/tiny-yolo.cfg weights/tiny-yolo.weights 0.1
