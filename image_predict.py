@@ -74,6 +74,10 @@ logger.info("Reading cat.jpg..")
 img = cv2.imread("cat.jpg")
 logger.info("Predicting...")
 res = predict(model, img)
+img_centre = (
+            img.shape[0]/2,
+            img.shape[1]/2
+        )
 center_obj = None
 obj_center_list = []
 for obj in res:
