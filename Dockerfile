@@ -40,4 +40,4 @@ ADD cat.jpg cat.jpg
 
 RUN usermod -aG video root
 
-CMD python image_predict.py cfg/tiny-yolo.cfg weights/tniy-yolo.weights 0.1
+CMD python image_predict.py cfg/tiny-yolo.cfg weights/tiny-yolo.weights 0.1
