@@ -74,4 +74,18 @@ logger.info("Reading cat.jpg..")
 img = cv2.imread("cat.jpg")
 logger.info("Predicting...")
 res = predict(model, img)
-print(res)
+center_obj = None
+obj_center_list = []
+for obj in res:
+    tl = obj["topleft"]
+    br = obj["topleft"]
+    center = (
+        (tl["x"]+br["x"])/2 - img_centre[0],
+        (tl["y"]+br["y"])/2 - img_centre[1]
+    )
+    obj_center_list.apend(center[0] + center[1])
+center_idx = min(obj_center_list)
+center_obj = res[center_idx]["label"]
+# Send object to kafka stream
+# kafka_produce
+print(center_obj)
