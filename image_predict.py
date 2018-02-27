@@ -16,7 +16,7 @@ def predict(model, image):
 
 
 # Get command line args
-args = sys.args[1:]
+args = sys.argv[1:]
 
 if len(args) != 3:
     print("Usage: python image_predict.py <model> <load> <threshold>")
