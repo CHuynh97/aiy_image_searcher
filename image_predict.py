@@ -16,7 +16,7 @@ def predict(model, image):
     return model.return_predict(image)
 
 
-logger = loggingg.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Get command line args
 args = sys.argv[1:]
