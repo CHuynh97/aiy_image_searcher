@@ -73,6 +73,7 @@ logger.info("Reading cat.jpg..")
 img = cv2.imread("cat.jpg")
 logger.info("Predicting...")
 res = predict(model, img)
+print(res)
 img_centre = (
             img.shape[0]/2,
             img.shape[1]/2
