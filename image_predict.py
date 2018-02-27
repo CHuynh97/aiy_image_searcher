@@ -33,11 +33,11 @@ options = {
 logger.info("Using model: {}, load:, {}, threshold: {}".format(*args))
 
 # Initialize model and Camera
-print("Setting up Darknet model")
+logger.info("Setting up Darknet model")
 model = TFNet(options)
-print("Darknet model initialized")
-# camera = PiCamera()
-# logger.info("Camera initialized")
+logger.info("Darknet model initialized")
+camera = PiCamera()
+print("Camera initialized")
 time.sleep(0.1)
 
 # Main loop
