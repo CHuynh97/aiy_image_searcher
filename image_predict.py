@@ -4,7 +4,7 @@ import time
 from darkflow.net.build import TFNet
 import sys
 import cv2
-import loggingg
+import logging
 
 def get_bgr_snapshot(camera):
     raw_capture = PiRGBArray(camera)
