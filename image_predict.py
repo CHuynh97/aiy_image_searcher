@@ -2,7 +2,8 @@ from picamera import PiCamera
 from picamera.array import PiRGBArray
 import time
 from darkflow.net.build import TFNet
-
+import sys
+import cv2
 
 def get_bgr_snapshot(camera):
     raw_capture = PiRGBArray(camera)
@@ -28,23 +29,23 @@ options = {
 }
 
 # Initialize model and Camera
-TF = TFNet(options)
+model = TFNet(options)
 camera = PiCamera()
 
 time.sleep(0.1)
 
 # Main loop
-while True:
+while False:
     # TODO Implement if statement to trigger image capture on audio input
     # if <Audio Input> == "what's that" or "what is that"
     x = input()
     if x == "s":
-        img = get_bgr_snapshot(camera=camera)
+        img = get_bgr_snapshot(camera)
         img_centre = (
             img.shape[0]/2,
             img.shape[1]/2
         )
-        res = predict(model=TF, image=img)
+        res = predict(model, img)
         
         # Choose the most centered object
         center_obj = None
@@ -63,6 +64,6 @@ while True:
         # kafka_produce
         print(center_obj)
 
-
-    
-    
+img = cv2.imread("cat.jpg")
+res = predict(model, img)
+print(res)
