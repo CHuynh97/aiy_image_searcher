@@ -54,7 +54,6 @@ while False:
         res = predict(model, img)
         
         # Choose the most centered object
-        center_obj = None
         obj_center_list = []
         for obj in res:
             tl = obj["topleft"]
@@ -78,7 +77,6 @@ img_centre = (
             img.shape[0]/2,
             img.shape[1]/2
         )
-center_obj = None
 obj_center_list = []
 for obj in res:
     tl = obj["topleft"]
