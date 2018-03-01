@@ -36,8 +36,9 @@ RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
 # RUN wget https://pjreddie.com/media/files/tiny-yolo.weights -P weights
 
 ADD image_predict.py image_predict.py
-ADD cat.jpg cat.jpg
+COPY images images
 
 RUN usermod -aG video root
 
-CMD python image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1
+
+CMD python image_predict.py cfg/yolo.cfg weights/yolo.weights 0.1 ${IMAGE}

@@ -21,9 +21,9 @@ logger = logging.getLogger(__name__)
 # Get command line args
 args = sys.argv[1:]
 
-if len(args) != 3:
-    print("Usage: python image_predict.py <model> <load> <threshold>")
-    exit(1)
+# if len(args) != 3:
+#     print("Usage: python image_predict.py <model> <load> <threshold>")
+#     exit(1)
 
 options = {
     "model": args[0],
@@ -59,8 +59,8 @@ while False:
             tl = obj["topleft"]
             br = obj["topleft"]
             center = (
-                (tl["x"]+br["x"])/2 - img_centre[0],
-                (tl["y"]+br["y"])/2 - img_centre[1]
+                abs((tl["x"]+br["x"])/2 - img_centre[0]),
+                abs((tl["y"]+br["y"])/2 - img_centre[1])
             )
             obj_center_list.apend(center[0] + center[1])
         center_idx = min(obj_center_list)
@@ -70,7 +70,7 @@ while False:
         print(center_obj)
 
 logger.info("Reading cat.jpg..")
-img = cv2.imread("cat.jpg")
+img = cv2.imread(args[3])
 logger.info("Predicting...")
 res = predict(model, img)
 print(res)
