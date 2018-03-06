@@ -1,0 +1,27 @@
+FROM tensorflow/tensorflow
+
+RUN apt-get update
+RUN apt-get install -y \
+    gcc \
+    python-pip \
+    cython \
+    git \
+    wget \
+    libsm6 \
+    libxrender-dev
+
+RUN pip install opencv-python
+
+RUN cd "/" && \
+    git clone https://github.com/thtrieu/darkflow.git && \
+    cd darkflow && \
+    pip install -e .
+
+WORKDIR /darkflow
+
+RUN mkdir weights
+RUN wget https://pjreddie.com/media/files/yolo.weights -P weights
+
+COPY images images
+ADD predict.py predict.py
+CMD python predict.py ${IMAGE}

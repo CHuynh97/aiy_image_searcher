@@ -69,15 +69,14 @@ while False:
         # kafka_produce
         print(center_obj)
 
-logger.info("Reading cat.jpg..")
 img = cv2.imread(args[3])
 logger.info("Predicting...")
 res = predict(model, img)
 print(res)
 img_centre = (
-            img.shape[0]/2,
-            img.shape[1]/2
-        )
+    img.shape[0]/2,
+    img.shape[1]/2
+)
 obj_center_list = []
 for obj in res:
     tl = obj["topleft"]
@@ -88,7 +87,10 @@ for obj in res:
     )
     obj_center_list.append(center[0] + center[1])
 center_idx = obj_center_list.index(min(obj_center_list))
-center_obj = res[center_idx]["label"]
+center_obj = res[center_idx]
+if center_obj["confidence"] < 0.5:
+    print("I'm sorry I also don't know what I'm looking at")
+# center_obj = max(res, key=lambda x: x["confidence"])
 # Send object to kafka stream
 # kafka_produce
-print(center_obj)
+print(center_obj["label"])
