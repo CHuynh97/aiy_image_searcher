@@ -1,14 +1,3 @@
-absl-py
-backports.weakref
-bleach
-enum34
-funcsigs
-futures
-html5lib
-kafka-python
-Markdown
-mock
-pbr
-protobuf
-six
-Werkzeug
+numpy==1.15.4
+opencv-python==3.4.3.18
+tornado==5.1.1
