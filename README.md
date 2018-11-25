@@ -1,2 +1,2 @@
 # AIY Image Seacher
-Listen for audio input and pass into speech recognition library. When specific phrase is processed, take snapshot of camera's view, run object detection and send detected object google search query of object
+Use AIY Vision Kit to run object classification. When button is pressed, take snapshot of camera's view, run object detection and send data to a Tornado server for GUI of results.
